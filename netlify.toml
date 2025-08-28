@@ -1,6 +1,7 @@
 [build]
-  publish = "site"
-  command = ""
+  publish = publish = ".next"
+command = "npm run build"   # or yarn/pnpm if that’s what you use
+  command = 
 
 [[headers]]
   for = "/*"
@@ -14,3 +15,5 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    [[plugins]]
+package = "@netlify/plugin-nextjs"
