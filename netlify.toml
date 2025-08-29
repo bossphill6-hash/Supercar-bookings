@@ -1,4 +1,11 @@
 [build]
+  base = "apps/web"             # where package.json lives
+  command = "npm run build"     # or: "npm ci && npm run build"
+  publish = "apps/web/.next"    # for Next.js builds
+
+# Remove the old pinned plugin (let Netlify install the latest automatically)
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"[build]
 command = "npm run build"
 publish = ".next"
 
