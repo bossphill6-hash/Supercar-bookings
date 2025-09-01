@@ -1,5 +1,4 @@
 [build]
-base = "apps/web"               # <-- change to your app folder
 command = "npm ci && npm run build"
 publish = ".next"
 
@@ -24,7 +23,7 @@ for = "/_next/static/*"
   [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
-# Managed Next.js plugin via UI — don't pin it here
+# Let Netlify manage the Next.js plugin from the UI — do not pin it here
 # [[plugins]]
 # package = "@netlify/plugin-nextjs"
 
@@ -33,6 +32,4 @@ package = "netlify-plugin-ghost-inspector"
 
 # Optional: Cloudflare purge once env vars are set
 # [[plugins]]
-# package = "netlify-purge-cloudflare-on-deploy"
-
 # package = "netlify-purge-cloudflare-on-deploy"
