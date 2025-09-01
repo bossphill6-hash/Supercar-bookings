@@ -1,6 +1,9 @@
 [build]
-command = "npm run build"
+command = "npm ci && npm run build"
 publish = ".next"
+
+[build.environment]
+NODE_VERSION = "20"
 
 [[headers]]
 for = "/*"
@@ -15,12 +18,20 @@ for = "/assets/*"
   [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
-[[plugins]]
-package = "@netlify/plugin-nextjs"
+[[headers]]
+for = "/_next/static/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# Let Netlify manage the Next.js plugin from the UI — do not pin it here
+# [[plugins]]
+# package = "@netlify/plugin-nextjs"
 
 [[plugins]]
 package = "netlify-plugin-ghost-inspector"
 
-# Uncomment if you want Cloudflare purge once env vars are set
+# Optional: Cloudflare purge once env vars are set
 # [[plugins]]
+# package = "netlify-purge-cloudflare-on-deploy"
+
 # package = "netlify-purge-cloudflare-on-deploy"
