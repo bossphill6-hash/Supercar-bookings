@@ -172,3 +172,33 @@ async function loadCars() {
     `).join('');
 }
 document.addEventListener('DOMContentLoaded', loadCars);
+async function loadCarPage() {
+  const wrap = document.getElementById('car');
+  if (!wrap) return;
+
+  const slug = new URLSearchParams(location.search).get('slug');
+  const cars = await fetch('./data/cars.json').then(r => r.json());
+  const car = cars.find(c => c.slug === slug);
+
+  if (!car) { wrap.innerHTML = "<p>Car not found.</p>"; return; }
+
+  wrap.innerHTML = `
+    <div class="gallery">
+      ${car.images.map(src => `<img src="${src}" alt="${car.name}" loading="lazy">`).join('')}
+    </div>
+    <h1>${car.name}</h1>
+    <p>${car.description}</p>
+    <ul class="specs">
+      <li>${car.year}</li>
+      <li>${car.specs.hp} hp</li>
+      <li>0–60 ${car.specs.zeroToSixty}s</li>
+      <li>Top ${car.specs.topSpeed} mph</li>
+      <li>${car.specs.transmission}</li>
+      <li>${car.specs.drivetrain}</li>
+      <li>${car.specs.seats} seats</li>
+    </ul>
+    <p class="price">$${car.pricePerDay.toLocaleString()}/day</p>
+    <a class="btn" href="booking.html?car=${encodeURIComponent(car.slug)}">Book this car</a>
+  `;
+}
+document.addEventListener('DOMContentLoaded', loadCarPage);
