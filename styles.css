@@ -141,3 +141,4 @@ hr{ border:none; border-top: 1px solid var(--border); margin: 18px 0 }
 :focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 2px }
 .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
 .skip-link:focus{ position:static; width:auto; height:auto; background:var(--accent); color:white; padding:6px 10px; border-radius:8px }
+.hero { background-image: url('/images/cars/aventador-svj/main.jpg'); }
