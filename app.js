@@ -152,3 +152,23 @@ window.renderBookingPage = () => {
     location.href = 'browse.html'
   })
 }
+async function loadCars() {
+  const res = await fetch('./data/cars.json');
+  const cars = await res.json();
+  const grid = document.querySelector('[data-cars-grid]');
+  if (!grid) return;
+
+  grid.innerHTML = cars
+    .filter(c => c.available)
+    .map(c => `
+      <a class="car-card" href="car.html?slug=${encodeURIComponent(c.slug)}">
+        <img src="${c.images[0]}" alt="${c.name}" loading="lazy">
+        <div class="meta">
+          <h3>${c.name}</h3>
+          <p>${c.year} • ${c.specs.transmission} • ${c.specs.seats} seats</p>
+          <strong>$${c.pricePerDay.toLocaleString()}/day</strong>
+        </div>
+      </a>
+    `).join('');
+}
+document.addEventListener('DOMContentLoaded', loadCars);
