@@ -1,40 +1,22 @@
-[
-  {
-    "id": "lambo-aventador-svj",
-    "slug": "aventador-svj",
-    "name": "Lamborghini Aventador SVJ",
-    "year": 2021,
-    "pricePerDay": 2499,
-    "images": ["/images/cars/aventador/main.jpg","/images/cars/aventador/int.jpg"],
-    "specs": {
-      "hp": 759,
-      "zeroToSixty": 2.8,
-      "topSpeed": 217,
-      "transmission": "Automatic",
-      "seats": 2,
-      "drivetrain": "AWD"
-    },
-    "description": "Track-focused V12 with active aero.",
-    "featured": true,
-    "available": true
+{
+  "id": "lambo-aventador-svj",
+  "slug": "aventador-svj",
+  "name": "Lamborghini Aventador SVJ",
+  "year": 2021,
+  "pricePerDay": 2499,
+  "images": [
+    "/images/cars/aventador-svj/main.jpg",
+    "/images/cars/aventador-svj/int.jpg"
+  ],
+  "specs": {
+    "hp": 759,
+    "zeroToSixty": 2.8,
+    "topSpeed": 217,
+    "transmission": "Automatic",
+    "seats": 2,
+    "drivetrain": "AWD"
   },
-  {
-    "id": "ferrari-296-gtb",
-    "slug": "296-gtb",
-    "name": "Ferrari 296 GTB",
-    "year": 2023,
-    "pricePerDay": 1999,
-    "images": ["/images/cars/296/main.jpg","/images/cars/296/rear.jpg"],
-    "specs": {
-      "hp": 819,
-      "zeroToSixty": 2.9,
-      "topSpeed": 205,
-      "transmission": "Automatic",
-      "seats": 2,
-      "drivetrain": "RWD"
-    },
-    "description": "Hybrid V6 rocket with sublime handling.",
-    "featured": false,
-    "available": true
-  }
-]
+  "description": "Track-focused V12 with active aero.",
+  "featured": true,
+  "available": true
+}
