@@ -48,42 +48,5 @@ enum PayoutStatus {
   FAILED
   CANCELED
 }
-Then:
-Format locally to double-check
 
-bash
-Copy code
-npx prisma format
-Commit & push
-
-bash
-Copy code
-git add prisma/schema.prisma
-git commit -m "Fix Prisma enum syntax (multiline values)"
-git push
-Trigger a new Netlify deploy (it will run prisma generate during postinstall and should pass).
-
-Extra sanity checks (optional but helpful)
-Ensure your schema header is correct:
-
-prisma
-Copy code
-generator client {
-  provider = "prisma-client-js"
-}
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-Make sure the file path is prisma/schema.prisma (default Prisma location).
-
-Add a format script so Netlify CI fails early if formatting is off:
-
-json
-Copy code
-// package.json
-"scripts": {
-  "prisma:format": "prisma format",
-  "postinstall": "prisma generate"
 }
