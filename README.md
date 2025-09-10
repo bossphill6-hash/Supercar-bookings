@@ -1,25 +1,33 @@
-# Supercar Hire — Website Design System
+# SupercarBookings P2P Starter
 
-This prototype demonstrates a premium, performance-focused design for a supercar rental marketplace.
-It includes a style guide, reusable components, and key flows: browse → car details → booking.
+A minimal Next.js 14 + Prisma + Stripe Connect API to let third parties list cars and get paid.
 
-## Brand foundations
-- **Personality:** Precision, confidence, adrenaline.
-- **Tone:** Clear, direct, trustworthy. No gimmicks.
-- **Motion:** Subtle, purposeful micro-interactions only.
+## Quick start
 
-## Information Architecture (IA)
-- Primary: Browse cars • Host your car • How it works • Sign in
-- Secondary (footer): About • Insurance & requirements • FAQ • Contact • Terms • Privacy
+1. Copy `.env.example` → `.env` and fill values.
+2. `npm install`
+3. `npx prisma migrate dev`
+4. `npm run dev`
 
-## Key flows
-1. **Search/Browse:** Filter by make, price/day, seats.
-2. **Car details:** Gallery, specs, price/day, location, host badge, availability.
-3. **Booking:** Pick dates, see price breakdown, confirm.
+### Core endpoints
+- `POST /api/auth/register` → { email, password } → token
+- `POST /api/auth/login` → { email, password } → token
+- `POST /api/hosts/onboard` (Bearer) → returns `onboardingUrl` for Stripe Express
+- `POST /api/vehicles` (Bearer) → { make, model, year, regPlate, description }
+- `POST /api/listings` (Bearer) → { vehicleId, basePrice, currency }
+- `GET /api/search?make=...&priceMax=...`
+- `POST /api/bookings/quote` → { listingId, startsAt, endsAt }
+- `POST /api/bookings` (Bearer) → creates Stripe PaymentIntent with application_fee + transfer
+- `POST /api/stripe/webhook` → configure endpoint in Stripe Dashboard
 
-## Accessibility
-- Color contrast ≥ 4.5:1 on text, visible focus, keyboard nav.
-- Semantics: Landmark regions, labels, alt text.
+> Note: This starter does not include uploads, KYC, or insurance integrations yet—wire those in next.
 
-## Tech
-- Static HTML/CSS/JS; framework-agnostic. Ready to port into Next.js/React.
+## Auth
+Send `Authorization: Bearer <token>` for protected routes.
+
+## Stripe
+- Create a **test** Connect account via `/api/hosts/onboard` and follow the returned link.
+- Set your webhook endpoint to `/api/stripe/webhook` with events: `payment_intent.succeeded`, `charge.refunded`, `account.updated`.
+
+## License
+MIT
