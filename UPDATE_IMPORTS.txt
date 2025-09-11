@@ -1,6 +1,0 @@
-Search & replace in your repo:
-
-- Find:    from '@/src/lib/'
-- Replace: from '@/lib/'
-
-Also ensure files live under: src/lib/*
