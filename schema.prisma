@@ -75,10 +75,10 @@ model User {
   driverLicenseNum String?
 
   vehicles         Vehicle[]
-  listings         Listing[]
   bookings         Booking[] @relation("BookingGuest")
   messages         Message[]
   reviews          Review[]  @relation("ReviewAuthor")
+  payouts          Payout[]
 }
 
 model Vehicle {
@@ -186,12 +186,13 @@ model Booking {
   updatedAt           DateTime      @updatedAt
   messages            Message[]
   reviews             Review[]
+  payment             Payment?      @relation("PaymentToBooking")
 }
 
 model Payment {
   id             String   @id @default(cuid())
   bookingId      String   @unique
-  booking        Booking  @relation(fields: [bookingId], references: [id])
+  booking        Booking  @relation("PaymentToBooking", fields: [bookingId], references: [id])
   amount         Int
   currency       String   @default("GBP")
   applicationFee Int
