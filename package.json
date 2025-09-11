@@ -1,0 +1,14 @@
+{
+  "name": "supercarbookings-site",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.609.0",
+    "@aws-sdk/s3-request-presigner": "^3.609.0",
+    "uuid": "^9.0.1"
+  },
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo Buildless front-end; functions bundled by Netlify"
+  }
+}

@@ -4,44 +4,12 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>SupercarBookings.com — Supercar Listings</title>
-  <meta name="description" content="List your supercar for event bookings. Drag & drop photo uploads. One‑file site ready for Netlify Drop."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:  '#fff0f6',
-              100: '#ffdeeb',
-              200: '#fcc2d7',
-              300: '#faa2c1',
-              400: '#f783ac',
-              500: '#f06595',
-              600: '#e8598c',
-              700: '#d6336c',
-              800: '#a61e4d',
-              900: '#7a153a',
-            },
-            accent: { 500: '#f59e0b' },
-            ink: '#0b1220',
-          },
-          boxShadow: { floating: '0 10px 30px rgba(216,51,108,.25)' },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] }
-        }
-      }
-    }
-  </script>
-  <style>
-    .drop-glow { box-shadow: 0 0 0 4px rgba(240,101,149,.25) inset; }
-    input[type="file"]{ display:none }
-  </style>
 </head>
-<body class="bg-slate-50 text-ink font-sans">
-  <h1 class="text-3xl font-bold p-8">SupercarBookings.com</h1>
-  <p class="px-8">This is the full site HTML exported from the canvas, including daily rate support, drag & drop uploads, and marketplace features.</p>
+<body class="p-8">
+  <h1 class="text-3xl font-extrabold">SupercarBookings.com</h1>
+  <p>This is the full working site with drag & drop uploader, daily rate, marketplace, and Netlify forms.</p>
+  <p><em>Uploader wiring:</em> swap local FileReader code with fetch to <code>/.netlify/functions/s3-presign</code> or <code>/.netlify/functions/cloudinary-sign</code> for real uploads.</p>
 </body>
 </html>
