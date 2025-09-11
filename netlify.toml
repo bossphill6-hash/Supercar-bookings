@@ -1,10 +1,6 @@
 [build]
-  command = ""         # no build step
-  publish = "."        # serve files from repo root
+  command = "npm run build"
+  publish = ".next"
 
-# optional security headers
-[[headers]]
-  for = "/*"
-  [headers.values]
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
