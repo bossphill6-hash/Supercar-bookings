@@ -1,8 +1,0 @@
-/ /index.html 200
-/browse /browse.html 200
-/booking /booking.html 200
-/car /car.html 200
-
-# Pretty URLs with dynamic query mapping for demo
-/car/* /car.html?id=:splat 200
-/booking/* /booking.html?id=:splat 200
