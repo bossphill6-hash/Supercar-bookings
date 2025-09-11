@@ -1,4 +1,12 @@
-// ----- ENUMS (put near the top of prisma/schema.prisma) -----
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 enum UserRole {
   GUEST
   HOST
