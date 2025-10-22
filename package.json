@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "netlify dev",
     "build": "echo Buildless front-end; functions bundled by Netlify"
-       "build": "echo \"Buildless front-end; functions bundled by Netlify\""
+    "preview": "node preview.mjs",
+    "build": "node -e \"console.log('Buildless front-end; functions bundled by Netlify')\""
   }
 }
